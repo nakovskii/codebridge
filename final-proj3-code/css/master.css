@@ -1,0 +1,757 @@
+
+/* common to all pages except index */
+.landing a {
+  text-decoration: none;
+}
+.landing a:visited{
+  color: gold;
+}
+.body-pages {
+  font-family: 'Prompt',serif;
+  margin: 0;
+  color: gold;
+  display: grid;
+  background-color: black;
+  grid-template-columns: 150px auto;
+  grid-template-rows: 150px auto 100px;
+  grid-template-areas:
+    "burger header"
+    "main main"
+    "footer footer";
+}
+.burger-box {
+  /* left: 5px; */
+  /* top: 0px; */
+  position: fixed;
+  z-index: 99;
+  grid-area: burger;
+  background-color: gold;
+  width: 152px;
+  height: 155px;
+}
+
+#burger-menu {
+  left: 1px;
+  top: 3px;
+  transform: rotate(90deg);
+  border-radius: 50%;
+  background-color: red;
+  background: url("../images/burger-menu.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 150px;
+  height: 150px;
+}
+
+header {
+  margin-right: 0;
+  grid-area: header;
+  text-align:justify;
+  justify-content: space-between;
+  display: block;
+}
+header * {
+  padding: 0;
+  margin: 0;
+}
+
+
+.pages-link{
+  font-size: 16pt;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin: 20px;
+  display:inline;
+  list-style: none;
+}
+
+
+#pages-link-container{
+  height: 155px;
+  padding-inline-start: 0px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  background-color: gold;
+  display: grid;
+  justify-content: space-between;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2px;
+}
+
+#pages-link-container img {
+  width: 40px;
+}
+
+#link1 {
+  grid-column-start:1;
+  grid-column-end:2;
+}
+
+#link2 {
+  grid-column-start:2;
+  grid-column-end:3;
+}
+
+#link3 {
+  grid-column-start:3;
+  grid-column-end:4;
+}
+
+#link4 {
+  grid-column-start:4;
+  grid-column-end:5;
+}
+
+.pages-link a{
+ display:inline-block;
+ color: black;
+ align-items: stretch;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration:none;
+}
+
+.pages-link a:hover, .dropdown:hover, .pages-link:hover {
+  border-bottom: 2px solid black;
+  font-weight: bold;
+}
+.dropdown, .pages-link{
+ display: inline-block;
+}
+.dropdown-container{
+ display:none;
+ position:absolute;
+ background-color:gold;
+ min-width:160px;
+ box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dropdown-container a{
+ color:black;
+ width: 250px;
+ padding: 12px 16px;
+ text-decoration: none;
+ display: block;
+ text-align:left;
+}
+.dropdown-container a:hover{
+ background-color:#f1f1f1;
+}
+.dropdown:hover .dropdown-container{
+ display:block;
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 150px auto;
+}
+
+.main-left {
+  position: fixed;
+  margin-left: 20px;
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+}
+.main-right {
+  margin-left: 20px;
+  grid-column: 2/3
+}
+
+.main-left img {
+  margin-top: 50px;
+  width: 120px;
+}
+.span-italic {
+  font-style: italic;
+}
+footer {
+  grid-area: footer;
+  bottom: 0;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  border-top: 2px solid gold;
+}
+footer button {
+  position: fixed;
+  font-size: 24pt;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 200px;
+  height: 50px;
+  line-height: 26px;
+  bottom: 10px;
+  right: 10px;
+  border-color: black;
+  background-color: gold;
+}
+footer p {
+  margin-left:200px;
+}
+.footer-state button:hover {
+  /* font-size: 26pt; */
+  font-weight: bold;
+}
+/* above is common to all pages except index */
+
+.landing {
+  margin: 0 auto;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+
+.mystic-title {
+  font-weight: bold;
+  margin-top: 110px;
+  font-size: 60pt;
+  color: rgba(54, 31, 7, 0.8);
+  text-align: center;
+  text-shadow: 2px 2px rgb(32, 20, 5);
+  font-family: 'Londrina Sketch', cursive;
+  transition: 3s ease-in;
+  transition-delay: 3s;
+}
+
+.sgopen {
+  border-radius: 50%;
+  background: url("../images/sgopen.jpg") no-repeat;
+  background-size: cover;
+  transition: 4s ease-in;
+  transition-delay: 3s;
+  display: none;
+  opacity: 0
+}
+/* this is not doing anything */
+.video:hover {
+  background: url("../images/sgopen.jpg") no-repeat;
+  background-size: cover;
+  transition: 3s cubic-bezier(0,1,.98,0);
+  transition-delay: 4s;
+  z-index: 3;
+}
+
+#sgclosed {
+  width: 700px;
+  height: 700px;
+  position: relative;
+  background: url("../images/sgclosed.jpg") no-repeat;
+  background-size: cover;
+  border: solid black 5px;
+  transition: 3s ease;
+  transition-delay: 1s;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  opacity: 1;
+}
+
+#sgclosed>h1 {
+  color: white;
+  text-align: center;
+  margin-top: 350px;
+}
+.woodengates {
+  margin: 0 auto;
+  /* border: solid black 1px; */
+  display: block;
+  position: absolute;
+  z-index: 2
+}
+
+
+#g1 {
+  top: 0;
+  left: 0;
+  width: 375px;
+  height: 580px;
+
+  margin-top: 1px;
+  margin-left: 1px;
+  background: url("../images/wg-top-left.jpg") no-repeat;
+  background-size: cover;
+  transition: 2s ease-in-out;
+}
+#g2 {
+  top: 1px;
+  left: 375px;
+  width: 375px;
+  height: 580px;
+  background: url("../images/wg-top-right.jpg") no-repeat;
+  background-size: cover;
+  transition: 2s ease-in-out;
+}
+#g3 {
+  top: 581px;
+  left: 1px;
+  width: 375px;
+  height: 300px;
+  background: url("../images/wg-bot-left.jpg") no-repeat;
+  background-size: cover;
+  transition: 2s ease-in-out;
+}
+#g4 {
+  top: 581px;
+  left: 376px;
+  width: 375px;
+  height: 300px;
+  background: url("../images/wg-bot-right.jpg") no-repeat;
+  background-size: cover;
+  transition: 2s ease-in-out;
+}
+
+#sgopen:hover {
+  transform: rotate(360deg);
+  background: url("../images/sgopen.jpg") no-repeat;
+  background-size: cover;
+  transition-delay: 3s;
+  transition: 1s ease-in;
+  display: block;
+  justify-content: center;
+  z-index: 3;
+  /* opacity: 1; */
+}
+
+#sgclosed:hover {
+  transform: rotate(360deg);
+  /* this is working but would like to delay background */
+  background: url("../images/sgopen.jpg") no-repeat;
+  background-size: cover;
+  transition-delay: 2s;
+}
+
+#sgclosed:hover .pos {
+  transform: rotate(0.25turn);
+}
+
+#sgclosed:hover .neg {
+  transform:rotate(-0.25turn);
+}
+
+/* this is not doing anything */
+#sgclosed:after {
+  width: 700px;
+  height: 700px;
+  position: relative;
+  background: url("../images/sgopen.jpg") no-repeat;
+  background-size: cover;
+  border: solid black 5px;
+  transition: 4s cubic-bezier(0,1,.98,0);
+  transition-delay: 1s;
+  display: none;
+  justify-content: center;
+  z-index: 3;
+  opacity: 1;
+}
+/* above not working */
+
+#g1 {
+  transform-origin: top left;
+}
+
+#g2 {
+  transform-origin: top right;
+}
+
+#g3 {
+  transform-origin: bottom left;
+}
+
+#g4 {
+  transform-origin: bottom right;
+}
+/* addition from homepage  */
+#body-home {
+  background-color: black;
+  /* background-color: rgba(10, 36, 96, 0.99); */
+  overflow: scroll;
+}
+#main-home {
+  justify-content: center;
+}
+.empty {
+  width: 80vw;
+  height: 100px;
+}
+#souls {
+  height: 100px;
+  background: url("../images/souls.jpeg")
+}
+
+.quote-wrapper {
+  display: flex;
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+.quoteby {
+  color: white;
+}
+
+#converge {
+  position: relative;
+  width: 700px;
+  height: 700px;
+}
+
+#convergeImg {
+  position: absolute;
+  top: 10vh;
+  left: 20vw;
+  width: 600px;
+  height: 600px;
+  margin:-60px 0 0 -60px;
+  animation: spin 30s linear infinite;
+  background: url() no-repeat;
+  background-position: center;
+  background-size: 600px 600px;
+  transform-origin: center;
+}
+@keyframes spin {
+  100% {
+    transform:rotate(360deg);
+    }
+}
+
+#worship-style-wrapper {
+  width: 90vw;
+  height: 300px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.worship-pix {
+  height: 300px;
+  display: inline-block;
+}
+
+/* above is addition from homepage */
+
+/* elevated-self below */
+.elevated-self{
+  /* margin-left: 0;
+  padding-left: 0; */
+  background: url("../images/islamic-dervishes-2.gif") no-repeat;
+  background-size: contain;
+  background-position: left;
+  justify-content: center;
+  background-color: black;
+  text-align: center;
+  color: gold;
+}
+
+#prlx-top-div {
+  margin-top: 10vh;
+  width: 100vw;
+  height: 50vh;
+  text-align: center;
+}
+
+.prlx-h1 {
+  font-family: 'Prompt', sans-serif;
+  letter-spacing: 0.1em;
+  margin-left: -1vh;
+  z-index: 99;
+}
+#parallax-container-sml {
+  /* position: relative; */
+  padding: 50px;
+  top: 300px;
+  display: block;
+  width: auto;
+  height: 700px;
+}
+
+#parallax-container-sml div {
+   position: fixed;
+   top: 30;
+   background-position: center !important;
+   transform: translateY(0px);
+   height: 600px;
+   /* Keep this the same height as above */
+   width: 90%;
+}
+
+#parallax-container {
+  position: relative;
+  padding: 50px;
+  top: 300px;
+  display: block;
+  width: auto;
+  height: 60vh;
+  top: -6vh;
+}
+
+#parallax-container div {
+   position: fixed;
+   top: 30;
+   background-position: center !important;
+   transform: translateY(0px);
+   height: 400px;
+   /* Keep this the same height as above */
+   width: 90%;
+}
+
+#p1 {
+  background: url('../images/fireworks.png') no-repeat;
+  background-size: 200px 400px;
+  /* left: -15vw; */
+  top: 10vh;
+}
+#p2 {
+  background: url('../images/avatar-neytri-3.png') no-repeat;
+  background-size: 200px 400px;
+  left: -10px;
+}
+#p3 {
+  background: url('../images/avatar-neytri-2.png') no-repeat;
+  background-size: 200px 400px;
+  left: 400px;
+}
+#p4 {
+  background: url('../images/avatar-neytri-1.png') no-repeat;
+  background-size: 200px 400px;
+  /* left: -10vw; */
+}
+
+#prlx-content {
+  color: gold;
+  position: relative;
+  bottom: 20vh;
+}
+
+@media (max-width: 500px) {
+  #parallax-container-sml {
+    /* position: relative; */
+    /* background-color: #030f33; */
+    padding: 50px;
+    top: 300px;
+    display: block;
+    width: auto;
+    height: 70vh;
+  }
+
+  #parallax-container-sml div {
+     position: fixed;
+     top: 30;
+     background-position: center !important;
+     transform: translateY(50px);
+     height: 60vh;
+     /* Keep this the same height as above */
+     width: 100%;
+  }
+
+}
+/* elevated self above */
+
+/* below added for state pages */
+
+#populate { /* button to pupulate the DOM */
+  width: 300px;
+  font-size: 16pt;
+  font-weight: bold;
+  line-height: 25px;
+  height: 40px;
+}
+.main-state-right {
+  letter-spacing: 0.2em;
+}
+/*  */
+
+/* below added for books.html and modal */
+.main-book-right{
+  margin-left: 10%;
+  display: grid;
+  grid-gap: 5%;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: auto;
+}
+.main-book-right p{
+  font-size: 11pt;
+}
+
+.mainImg{
+  grid-column: 1/2;
+  margin-top: 3vh;
+  max-height: 75vh;
+  display: block;
+}
+.book-desc {
+  grid-column: 2/3;
+  margin-top: 3vh;
+  padding-left: 50px;
+  display: block;
+}
+
+#mainBook p {
+  font-size: 14pt;
+  margin-top: 15px;
+}
+
+#mainBook span{
+  font-size: 1.3em;
+  font-weight: 1600;
+}
+
+#mainBook a:visited {
+  color: gold;
+  text-decoration: none;
+}
+#rule01{
+  display: block;
+}
+.rules {
+  color: white;
+  display: none;
+  width: 500px;
+  height: 400px;
+  justify-content: center;
+  text-align: justify;
+}
+.rules p{
+  font-size: 16pt;
+  font-family: fantasy;
+}
+.rules h1{
+  font-size: 48pt;
+  font-family: cursive;
+}
+
+/* slide show modal */
+.modalPopUp {
+ position: absolute;
+ top: 200px;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ background: rgba(255,0,0,0.8);
+ z-index: 999;
+ opacity:0;
+ transition: opacity 900ms ease-in;
+ pointer-events: none;
+ width: 600px;
+ height: 500px;
+ margin: 10% auto;
+ padding: 5px 20px 13px 20px;
+ border-radius: 10px;
+ background: rgba(255,0,0,1);
+  justify-content: center;
+}
+
+.modalPopUp:target {
+ opacity:1;
+ pointer-events: auto;
+}
+
+.close {
+ background: rgba(255, 0, 0, 0.9);
+ color: white;
+ border: 2px solid gold;
+ border-radius: 50%;
+ line-height: 25px;
+ position: absolute;
+ right: -12px;
+ text-align: center;
+ top: -10px;
+ width: 24px;
+ text-decoration: none;
+}
+
+.close:hover {
+  background: #000;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.modal-buttons button{
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 100px;
+  color: gold;
+  font-size: 14pt;
+}
+
+/* above added for books.html and modal */
+
+/* below added for ripples and rain drops page */
+.body-ripples {
+  font-family: 'Prompt',serif;
+  margin: 0;
+  color: gold;
+}
+header {
+  z-index: 99;
+  margin-right: 0;
+  grid-area: header;
+  text-align:justify;
+  justify-content: space-between;
+  display: block;
+}
+.mainripples {
+  margin-top: 20px;
+  padding-left: 0;
+  background: url("../images/sufi-whirling-sketch.jpg") no-repeat;
+  background-size: cover;
+  height: 80vh;
+  width: 80vw;
+  font-family: 'Prompt', sans-serif;
+  letter-spacing: 0.1em;
+  display: block;
+}
+  /* z-index: -1; */
+/* } */
+.main-ripples div{
+  margin-left: 300px;
+  position: relative;
+  width: 40vw;
+}
+span {
+  font-size: 1.4em
+}
+.no-color {
+  font-size: 2em;
+  color: white;
+}
+/* added for contact page */
+
+.hh1 {
+  font-family: 'Prompt', sans-serif;
+  text-transform: capitalize;
+
+  /* color: grey; */
+}
+
+.f2 {
+  font-family: 'Shadows Into Light', cursive;
+  color: grey;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+input {
+  display: block;
+  font-size: 14pt;
+  margin: 5vw;
+  width: 50vw;
+  line-height: 30px;
+}
+#commentbox {
+  font-size: 14pt;
+  margin-left: 40px;
+  height: 200px;
+}
+@media (maxwidth: 500px) {
+  input{
+    margin: 0 10px
+  }
+}
